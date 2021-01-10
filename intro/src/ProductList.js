@@ -4,7 +4,7 @@ class ProductList extends Component {
     // eski versiyonda yapmak gerekiyor.
     // constructor(props) {
     //     super(props);
-    //     state:{
+    //     this.state={
     //     }
     // }
 
