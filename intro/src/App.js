@@ -5,22 +5,26 @@ import {Col, Container, Row} from "reactstrap";
 
 function App() {
 
-    let titleProduct = "Product List";
-    let titleCategory = "Category List";
+    let productInfo = {
+        title: "Product List"
+    }
+    let categoryInfo = {
+        title: "Category List",
+        anotherThing:"Another"
+    }
 
     return (
         <div>
-            <h2>App</h2>
-            <Container>
+            <Container fluid={true}>
                 <Row>
                     <Navi/>
                 </Row>
                 <Row>
                     <Col xs={3}>
-                        <CategoryList title={titleCategory}/>
+                        <CategoryList info={categoryInfo}/>
                     </Col>
                     <Col xs={9}>
-                        <ProductList title={titleProduct}/>
+                        <ProductList info={productInfo}/>
                     </Col>
                 </Row>
             </Container>
