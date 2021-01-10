@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {ListGroup, ListGroupItem} from "reactstrap";
 
-class CategoryList extends Component {
+export default class CategoryList extends Component {
     state = {
         categories: [
             {
@@ -12,52 +12,23 @@ class CategoryList extends Component {
                 categoryId: 2,
                 categoryName: "Condiments"
             }
-        ],
-        currentCategory: ""
+        ]
     };
-
-    // alternatif state ve props olusturma yontemi
-    // constructor(props) {
-    //     super(props);
-    //     this.state = {
-    //         categories: [
-    //             {
-    //                 categoryId: 1,
-    //                 categoryName: "Beverages"
-    //             },
-    //             {
-    //                 categoryId: 2,
-    //                 categoryName: "Condiments"
-    //             }
-    //         ]
-    //         // counterVar: 1 // counterVar degisken ismidir
-    //     }
-    // }
-
-    changeCategory = (category) => { // arrow function
-        this.setState({currentCategory: category.categoryName})
-    }
 
     render() {
         return (
             <div>
                 <h3>{this.props.info.title}</h3>
-                <p>{this.props.info.anotherThing}</p>
-
-                {/*<p>{this.state.counterVar}</p>*/}
-
                 <ListGroup>
                     {
                         this.state.categories.map(category => (
-                            <ListGroupItem onClick={() => this.changeCategory(category)}
+                            <ListGroupItem onClick={() => this.props.changeCategory(category)}
                                            key={category.categoryId}>{category.categoryName}</ListGroupItem>
                         ))
                     }
                 </ListGroup>
-                <h4>{this.state.currentCategory}</h4>
+                <h4>{this.props.currentCategory}</h4>
             </div>
         );
     }
 }
-
-export default CategoryList;
