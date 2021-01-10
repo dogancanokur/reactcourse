@@ -34,6 +34,10 @@ class CategoryList extends Component {
     //     }
     // }
 
+    changeCategory = (category) => { // arrow function
+        this.setState({currentCategory: category.categoryName})
+    }
+
     render() {
         return (
             <div>
@@ -45,7 +49,7 @@ class CategoryList extends Component {
                 <ListGroup>
                     {
                         this.state.categories.map(category => (
-                            <ListGroupItem onClick={()=>this.setState({currentCategory: category.categoryName})}
+                            <ListGroupItem onClick={() => this.changeCategory(category)}
                                            key={category.categoryId}>{category.categoryName}</ListGroupItem>
                         ))
                     }
