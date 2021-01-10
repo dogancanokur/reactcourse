@@ -4,6 +4,7 @@ import ProductList from "./ProductList";
 import {Col, Container, Row} from "reactstrap";
 
 function App() {
+
     return (
         <div>
             <h2>App</h2>
@@ -13,10 +14,10 @@ function App() {
                 </Row>
                 <Row>
                     <Col xs={3}>
-                        <ProductList/>
+                        <CategoryList title="Category List"/>
                     </Col>
                     <Col xs={9}>
-                        <CategoryList/>
+                        <ProductList title="Product List"/>
                     </Col>
                 </Row>
             </Container>
