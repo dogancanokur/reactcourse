@@ -12,7 +12,8 @@ class CategoryList extends Component {
                 categoryId: 2,
                 categoryName: "Condiments"
             }
-        ]
+        ],
+        currentCategory: ""
     };
 
     // alternatif state ve props olusturma yontemi
@@ -44,10 +45,12 @@ class CategoryList extends Component {
                 <ListGroup>
                     {
                         this.state.categories.map(category => (
-                            <ListGroupItem key={category.categoryId}>{category.categoryName}</ListGroupItem>
+                            <ListGroupItem onClick={()=>this.setState({currentCategory: category.categoryName})}
+                                           key={category.categoryId}>{category.categoryName}</ListGroupItem>
                         ))
                     }
                 </ListGroup>
+                <h4>{this.state.currentCategory}</h4>
             </div>
         );
     }
