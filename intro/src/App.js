@@ -12,14 +12,21 @@ export default class App extends Component {
 
     changeCategory = (category) => {
         this.setState({currentCategory: category.categoryName});
+        this.getProduct(category.id);
     }
 
     componentDidMount() {
         this.getProduct();
     }
 
-    getProduct = () => {
-        fetch("http://localhost:3000/products")
+    getProduct = (categoryId) => {
+        let url = "http://localhost:3000/products";
+        console.log(categoryId)
+        // is defined
+        if (categoryId) {
+            url += "?categoryId=" + categoryId;
+        }
+        fetch(url)
             .then(response => response.json())
             .then(data => this.setState({products: data}))
     }
