@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink,} from "reactstrap";
 import CartSummary from "./CartSummary";
+import {Link} from "react-router-dom";
 
 export default class Navi extends Component {
     isOpen;
@@ -16,8 +17,14 @@ export default class Navi extends Component {
                     <Collapse isOpen={this.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             {/*ml => saga - mr => sola  yaslar*/}
+
+                            {/*<NavItem>*/}
+                            {/*    <NavLink href="/form1">Form Demo</NavLink>*/}
+                            {/*</NavItem>*/}
                             <NavItem>
-                                <NavLink href="/components/">Components</NavLink>
+                                <NavLink>
+                                    <Link to="/form1">Form</Link>
+                                </NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
