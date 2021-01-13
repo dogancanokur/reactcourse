@@ -27,6 +27,11 @@ export default class Navi extends Component {
                                 </NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink>
+                                    <Link to="/form2">Form 2</Link>
+                                </NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
                             </NavItem>
                             <CartSummary cart={this.props.cart}
