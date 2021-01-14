@@ -10,7 +10,7 @@ export const increaseCounter = () => (
 
 export const decreaseCounter = () => ({
     type: actionTypes.DECREASE_COUNTER,
-    payload: 1
+    payload: -1
 });
 
 export const increaseByTwoCounter = () => ({
