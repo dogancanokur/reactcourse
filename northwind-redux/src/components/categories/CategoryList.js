@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";// dispatch
 import * as categoryActions from "../../redux/actions/categoryActions";
-import {ListGroup, ListGroupItem} from "reactstrap"; // getCategory almak icin
+import {Badge, ListGroup, ListGroupItem} from "reactstrap"; // getCategory almak icin
 
 
 class CategoryList extends Component {
@@ -17,7 +17,7 @@ class CategoryList extends Component {
     render() {
         return (
             <div>
-                <h3>Categories</h3>
+                <h3><Badge color="warning">Category List</Badge></h3>
                 <ListGroup>
                     {
                         this.props.categories.map(category => (
@@ -28,8 +28,8 @@ class CategoryList extends Component {
                     }
                 </ListGroup>
 
-                <h5>Category size : {this.props.categories.length}</h5>
-                <h5>Selected Category : {this.props.currentCategory.categoryName}</h5>
+                {/*<h5>Category size : {this.props.categories.length}</h5>*/}
+                {/*<h5>Selected Category : {this.props.currentCategory.categoryName}</h5>*/}
             </div>
         );
     }
