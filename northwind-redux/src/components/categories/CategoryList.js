@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";// dispatch
 import * as categoryActions from "../../redux/actions/categoryActions";
+import * as productActions from "../../redux/actions/productActions";
 import {Badge, ListGroup, ListGroupItem} from "reactstrap"; // getCategory almak icin
 
 
@@ -11,7 +12,8 @@ class CategoryList extends Component {
     }
 
     selectCategory = (category) => {
-        this.props.actions.changeCategory(category)
+        this.props.actions.changeCategory(category);
+        this.props.actions.getProducts(category.id);
     }
 
     render() {
@@ -47,7 +49,8 @@ function mapDispatchToProps(dispatch) {
         actions: {
             // action ve dispatch i bagla
             getCategories: bindActionCreators(categoryActions.getCategories, dispatch),
-            changeCategory: bindActionCreators(categoryActions.changeCategory, dispatch)
+            changeCategory: bindActionCreators(categoryActions.changeCategory, dispatch),
+            getProducts: bindActionCreators(productActions.getProducts, dispatch)
         }
     }
 }
