@@ -1,6 +1,7 @@
-export default {
+export default { // state default ayarlari icinde kullanilabilir
     currentCategory: {},
     categories: [],
     products: [],
-    cart: []
+    cart: [],
+    savedProduct: []
 }
