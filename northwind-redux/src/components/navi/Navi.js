@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink} from 'reactstrap';
 import CartSummary from "../cart/CartSummary";
+import {Link} from "react-router-dom";
 
 const Navi = (props) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -10,7 +11,7 @@ const Navi = (props) => {
     return (
         <div>
             <Navbar color="light" light expand="md">
-                <NavbarBrand href="/">reactstrap</NavbarBrand>
+                <NavbarBrand href={"/"}> Northwind App</NavbarBrand>
                 <NavbarToggler onClick={toggle}/>
                 <Collapse isOpen={isOpen} navbar>
                     <Nav className="ml-auto" navbar>

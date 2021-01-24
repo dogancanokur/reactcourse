@@ -3,6 +3,8 @@ import {Badge, DropdownItem, DropdownMenu, DropdownToggle, NavItem, NavLink, Unc
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as cartActions from "../../redux/actions/cartActions";
+import {Link} from "react-router-dom";
+import alertify from "alertifyjs";
 
 class CartSummary extends Component {
     renderEmpty() {
@@ -12,6 +14,12 @@ class CartSummary extends Component {
             </NavItem>
         );
     }
+
+    removeFromCart(product) {
+        this.props.actions.removeFromCart(product);
+        alertify.error(product.productName + " deleted");
+    }
+
 
     renderSummary() {
         return (
@@ -23,7 +31,7 @@ class CartSummary extends Component {
                     {
                         this.props.cart.map(cartItem => (
                             <DropdownItem key={cartItem.product.id}>
-                                <Badge onClick={() => this.props.actions.removeFromCart(cartItem.product)}
+                                <Badge onClick={() => this.removeFromCart(cartItem.product)}
                                        color="danger">X</Badge> {cartItem.product.productName} - <Badge
                                 color="success">{cartItem.quantity}</Badge>
                             </DropdownItem>
@@ -31,7 +39,7 @@ class CartSummary extends Component {
                     }
                     <DropdownItem divider/>
                     <DropdownItem>
-                        Reset
+                        <Link to={"/cart"}>Go To Cart</Link>
                     </DropdownItem>
                 </DropdownMenu>
             </UncontrolledDropdown>
