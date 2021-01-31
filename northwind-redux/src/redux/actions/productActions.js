@@ -24,7 +24,6 @@ export function saveProductApi(product) {
 
 export function saveProduct(product) {
     return function (dispatch) { // action un devreye girmesi icin
-
         saveProductApi(product)
             .then(savedProduct => {
                 product.id ? dispatch(updateProductSuccess(savedProduct)) : dispatch(createProductSuccess(savedProduct));
